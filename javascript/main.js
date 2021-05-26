@@ -1,16 +1,4 @@
 $(window).ready(function () {
-    //adject header dimantion 
-    $(window).on("load", function () {
-        let ww = $(this).outerWidth()
-        if (ww < 1920) {    
-            let videoHeight = $("header video").innerHeight();
-            $("header").css("height",videoHeight)
-        } else {
-            let height = $(window).innerHeight();
-            $("header").css("height",height)
-        }
-    })
-    //navbar
     $(window).on("scroll", function () {
         let scrollTop = $(this).scrollTop();
         if (scrollTop > 150) {
@@ -50,5 +38,5 @@ $(window).ready(function () {
         $(this).parent().slideUp()
     })
 
-    //media screen 
+    
 })

@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     text-transform: capitalize;
-    font-family: 'Archivo Black', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 :root {
@@ -107,23 +107,73 @@ body {
 
 header {
     width: 100%;
-    height: 80vh;
+    height: 85vh;
     overflow: hidden;
     position: relative;
 }
 
 header .video{
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     position: absolute;
     top:0;
     z-index: -1;
 }
 
+header .video video {
+    filter: blur(5px);
+}
+
 header .overlay  {
     width: 100%;
     height: 100%;
-    background-color: rgb(45 45 45 / 90%);
+    background-color: rgb(14 14 14 / 90%);
+    color: white;
+}
+
+header .overlay .container {
+    position: relative;
+    height: 70vh;
+    top:17.5%;
+}
+
+header .overlay .container .row {
+    height: 100%;
+}
+
+header .overlay .container .row > div {
+    width: 50%;
+    height: 100%;
+}
+
+header .overlay .container .row .txt {
+    padding: 50px;
+}
+
+header .overlay .container .row .txt h1 {
+    font-size: 70px;
+    text-shadow:4px 4px 2px var(--redColor);
+    line-height: 1.7em;
+}
+
+header .overlay .container .row .txt span {
+    color:#545252;
+}
+
+header .overlay .container .row .txt button {
+    padding: 15px 30px;
+    font-size: 19px;
+    color: white;
+    background-color: var(--redColor);
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    transform: translateX(-5px);
+    display: block;
+    margin-top: 30px;
+}
+
+@media (max-width: 1200px) {
 }
 /*start header*/
 /*start hidden section*/
@@ -166,16 +216,17 @@ header .overlay  {
 }
 
 .hidden.main-menu .row li {
-    font-size: 35px;
+    font-size: 45px;
     cursor: pointer;
     text-transform: uppercase;
     transition: 0.2s ease-in-out color;
+    font-weight: bolder;
 }
 
 .hidden.main-menu .icon {
     display: none;
     position: absolute;
-    bottom: 30px;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -186,7 +237,7 @@ header .overlay  {
 
 @media (max-width: 1200px) {
     .hidden.main-menu .row li {
-        font-size: 25px;
+        font-size: 30px;
     }
 }
 
@@ -197,7 +248,6 @@ header .overlay  {
 
     .hidden.main-menu .row li:not(:last-child) {
         margin-bottom: 20px;
-        font-size:35px
     }
 
     .hidden.main-menu .icon {
@@ -241,7 +291,8 @@ header .overlay  {
     padding: 25px;
     border-bottom: 1px solid #272727;
     text-transform: uppercase;
-    font-size: 23px;
+    font-size: 27px;
+    font-weight: bolder;
 }
 
 .hidden.main-products .cart > h2 span {
@@ -263,6 +314,7 @@ header .overlay  {
 
 .hidden.main-products .cart .bord .txt h2 {
     font-size: 23px;
+    font-weight: bolder;
 }
 
 .hidden.main-products .cart .bord .txt span {
