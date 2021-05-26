@@ -58,16 +58,25 @@ body {
     line-height: 50px;
 }
 
-.nav-bar .row .navbar .icons .fas {
+@media (max-width: 800px) {
+    .nav-bar .row .navbar .icon {
+        display: none;
+    }
+}
+
+.nav-bar .row .navbar .icons .fas,
+.hidden.main-menu .icon .fas {
     cursor: pointer;
     position: relative;
 }
 
-.nav-bar .row .navbar .icons .fas:not(:last-child){
+.nav-bar .row .navbar .icons .fas:not(:last-child),
+.hidden.main-menu .icon .fas:not(:last-child){
     margin-right: 35px;
 } 
 
-.nav-bar .row .navbar .icons .fa-shopping-bag::after {
+.nav-bar .row .navbar .icons .fa-shopping-bag::after,
+.hidden.main-menu .icon .fa-shopping-bag::after {
     content:"2";
     position: absolute;
     color:white;
@@ -126,21 +135,84 @@ header .overlay  {
     height: 100vh;
     display: none;
     color: white;
+    justify-content: center;
+    align-items: center;
 }
 
 .hidden.main-menu {
     background-color:var(--darkColor) ;
+    display: none;
+}
+
+.hidden.main-menu .fa-times {
+    position: absolute;
+    right:25px;
+    top:25px;
+    background-color: var(--redColor);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.hidden.main-menu .row {
+    margin-bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.hidden.main-menu .row li {
+    font-size: 35px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.2s ease-in-out color;
+}
+
+.hidden.main-menu .icon {
+    display: none;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hidden.main-menu .row li:hover {
+    color:var(--redColor)
+}
+
+@media (max-width: 1200px) {
+    .hidden.main-menu .row li {
+        font-size: 25px;
+    }
+}
+
+@media (max-width:800px) {
+    .hidden.main-menu .row {
+        flex-direction: column;
+    }
+
+    .hidden.main-menu .row li:not(:last-child) {
+        margin-bottom: 20px;
+        font-size:35px
+    }
+
+    .hidden.main-menu .icon {
+        display: block;
+    }
 }
 
 .hidden.main-products {
     background-color:rgba(0, 0, 0, 0.7);
     display: none;
-    justify-content: center;
-    align-items: center;
 }
 
 .hidden.main-products .cart{
-    width: 450px;
+    max-width: 450px;
+    margin: 0 20px;
     background-color: var(--darkColor);
     border-radius: 3px;
     position: relative;
@@ -194,9 +266,10 @@ header .overlay  {
 }
 
 .hidden.main-products .cart .bord .txt span {
-    color:gray;
-    font-size: 12px;
+    color: gray;
+    font-size: 15px;
     font-weight: lighter;
+    font-family: fantasy;
 }
 
 .hidden.main-products .cart .footer {
@@ -220,6 +293,65 @@ header .overlay  {
 
 .hidden.main-products .cart .footer button:hover {
     background-color: rgb(146, 27, 27);
+}
+
+.hidden.main-search {
+    width: 100%;
+    height:100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.hidden.main-search .fa-times {
+    position: absolute;
+    right:25px;
+    top:25px;
+    background-color: var(--redColor);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.hidden.main-search .search {
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hidden.main-search .search input[type="search"] {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+    color: white;
+    width: 90%;
+    padding: 25px;
+    font-size: 50px;
+    font-weight: lighter;
+}
+
+.hidden.main-search .search input[type="button"] {
+    padding: 15px 40px;
+    font-size: 19px;
+    color: white;
+    background-color: var(--redColor);
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    transform: translateX(-5px);
+}
+
+@media (max-width:500px) {
+    .hidden.main-search .search input[type="search"] {
+        font-size: 30px;
+    }
 }
 
 /*end hidden section*/
