@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     text-transform: capitalize;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Fjalla One', sans-serif;
 }
 
 :root {
@@ -132,9 +132,11 @@ header .overlay  {
 }
 
 header .overlay .container {
-    position: relative;
+    position: absolute;
     height: 70vh;
-    top:17.5%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 header .overlay .container .row {
@@ -144,24 +146,60 @@ header .overlay .container .row {
 header .overlay .container .row > div {
     width: 50%;
     height: 100%;
+    position: relative;
 }
 
 header .overlay .container .row .txt {
-    padding: 50px;
+    padding: 50px 50px 0 50px;
+}
+
+header .overlay .container .row .img::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top:30px;
+    z-index: -1;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--redColor);
+}
+
+header .overlay .container .row .img::before {
+    content: "";
+    position: absolute;
+    top:30px;
+    left:10px;
+    z-index: -1;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: var(--redColor);
+}
+
+header .overlay .container .row .txt .con {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100%;
+    width: 100%;
 }
 
 header .overlay .container .row .txt h1 {
-    font-size: 70px;
+    font-size: 80px;
     text-shadow:4px 4px 2px var(--redColor);
-    line-height: 1.7em;
+    line-height: 1.5em;
+    font-weight: bolder;
 }
 
-header .overlay .container .row .txt span {
+header .overlay .container .row .txt p {
     color:#545252;
+    word-break: break-all;
 }
 
 header .overlay .container .row .txt button {
-    padding: 15px 30px;
+    width: 180px;
+    height: 60px;
     font-size: 19px;
     color: white;
     background-color: var(--redColor);
@@ -169,11 +207,98 @@ header .overlay .container .row .txt button {
     outline: none;
     border: none;
     transform: translateX(-5px);
-    display: block;
     margin-top: 30px;
 }
 
 @media (max-width: 1200px) {
+    header {
+        height: 75vh;
+    }
+
+    header .overlay .container {
+        height: 65vh;
+    } 
+}
+
+@media (max-width:992px) {
+    header {
+        min-height: 90vh;
+    }
+
+    header .overlay .container {
+        height: 90vh;
+        max-width: 500px;
+    }
+
+    header .overlay .container .row {
+        flex-direction:column-reverse;
+    }
+
+    header .overlay .container .row > div {
+        width: 100%;
+        height: 47.5%;
+    }
+
+    header .overlay .container .row .txt {
+        height: 55%;
+    }
+
+    header .overlay .container .row .img::before {
+        top:100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+        height: 400px;
+    }
+
+    header .overlay .container .row .img::after {
+        left: 30px;
+        top:70px
+    }
+
+    header .overlay .container .row .txt .con {
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    header .overlay .container .row .txt span {
+        height: 50px;
+    }
+
+    header .overlay .container .row .txt button {
+        margin-top:10px
+    }
+
+    header .overlay .container .row .img {
+        height: 45%;
+        padding: 50px 50px 0px 50px;
+    }
+}
+
+@media (max-width:577px) {
+    header .overlay .container .row .txt h1 {
+        font-size: 40px;
+    }
+
+    header .overlay .container .row .txt {
+        padding: 25px 25px 0 25px;
+    }
+    
+    header .overlay .container .row .img::before {
+        width: 300px;
+        height:300px
+    }
+
+    header {
+        min-height: 100vh;
+    }
+
+    header .overlay .container .row .img {
+        padding: 0;
+    }
 }
 /*start header*/
 /*start hidden section*/
@@ -187,6 +312,10 @@ header .overlay .container .row .txt button {
     color: white;
     justify-content: center;
     align-items: center;
+}
+
+.hidden.fade {
+    opacity: 1;
 }
 
 .hidden.main-menu {
@@ -226,7 +355,7 @@ header .overlay .container .row .txt button {
 .hidden.main-menu .icon {
     display: none;
     position: absolute;
-    bottom: 50px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -267,11 +396,13 @@ header .overlay .container .row .txt button {
     border-radius: 3px;
     position: relative;
     transform: translateY(-150px);
-    transition: 0.3s ease-out transform;
+    transition: 0.8s ease-out transform, 0.8s ease-in-out opacity;
+    opacity: 0;
 }
 
 .hidden.main-products.active .cart {
-    transform: translateY(-0px);
+    transform: translateY(0px);
+    opacity: 1;
 }
 
 .hidden.main-products .cart .fa-times{

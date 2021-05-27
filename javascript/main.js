@@ -10,33 +10,52 @@ $(window).ready(function () {
 
     //hidden section
     $(".hidden.main-products").on("click", function () {
-        $(this).fadeOut(hiddenTime).removeClass("active");
+        $(this).fadeOut().removeClass("active");
     })
     const hiddenTime = 100;
     // menu icon
     $(".nav-bar .fa-bars").on("click", function () {
         $(".hidden.main-menu").slideDown(500).css("display","flex")
     })
-    $(".hidden.main-menu .fa-times").on("click", function () {
-        $(".hidden.main-menu").slideUp(500)
-    })
-    //products icon
-    $(".nav-bar .fa-shopping-bag").on("click", function () {
-        $(".hidden.main-products").fadeIn(hiddenTime).css("display","flex").addClass("active");
-    })
-    $(".hidden.main-products .cart .fa-times").on("click", function () {
-        $(".hidden.main-products").fadeOut(hiddenTime).removeClass("active");
-    })
-    $(".hidden.main-products .cart, .hidden.main-search .search").on("click", function (e) {
+    
+    
+    //search icon
+    function allIcon(icon,targetParent) {
+        let arr = ["fade", "slide"];
+        $(icon).on("click", function () {
+            if ($(window).innerWidth() <= 800) {
+                for (let i = 0; i < arr.length; i++) {
+                    if ($(targetParent).hasClass("fade")) {
+                        $(targetParent).fadeIn(1000).css("display", "flex").addClass("active");
+                         $(".hidden.main-menu").delay(1500).slideUp()
+                        console.log("fade")
+                    } else  {
+                        $(targetParent).slideDown().css("display", "flex")
+                        $(".hidden.main-menu").slideUp()
+                        console.log("slide")
+
+                    }
+                }
+            } else {
+                $(targetParent).slideDown().css("display", "flex")
+                $(targetParent).fadeIn().css("display", "flex").addClass("active");
+            }
+        })
+        $(".hidden.main-menu .fa-times").on("click", function () {
+            $(this).parent().slideUp()
+        })
+        $(".hidden.main-search .fa-times").on("click", function () {
+            $(this).parent().slideUp()
+        })
+        $(".hidden.main-products .fa-times").on("click", function () {
+            $(this).parent().parent().fadeOut().removeClass("active")
+        })
+    }
+    allIcon(".fa-search",".hidden.main-search")
+    allIcon(".fa-shopping-bag",".hidden.main-products")
+
+    //shopping icon
+    $(".hidden.main-products .cart").on("click", function (e) {
         e.stopPropagation()
     })
-    //search icon
-    $(".nav-bar .fa-search").on("click", function () {
-        $(".hidden.main-search").slideDown().css("display", "flex")
-    })
-    $(".hidden.main-search .fa-times").on("click", function () {
-        $(this).parent().slideUp()
-    })
-
-    
 })
