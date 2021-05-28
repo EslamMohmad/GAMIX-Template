@@ -12,6 +12,15 @@
     <title>MAXON</title>
 </head>
 <body>
+    <!--start loader screen-->
+    <div class="loader-screen">
+        <div class="loader loader-box">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+    <!--end loader screen-->
     <!--start hidden section-->
     <div class="main-menu hidden">
         <i class="fas fa-times"></i>
@@ -62,6 +71,50 @@
             <input type="button" value="search">
         </div>
     </div>
+    <div class="main-video hidden fade">
+        <div class="frame-video">
+            <iframe 
+                width="600px" 
+                height="410px" 
+                src="https://www.youtube.com/embed/nVhXp6FX7Y4" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    <div class="main-user hidden">
+        <div class="container">
+            <div class="row">
+                <div class="content">
+                    <div class="bord one col-md-8 ">
+                        <h4>login</h4>
+                        <form>
+                            <input class="full-w dark" type="number" placeholder="phone number or email">
+                            <input class="full-w dark" type="password" placeholder="password">
+                            <div class="txt">
+                                <input type="checkbox"><label>remember me</label><a>forgot password</a>
+                            </div>
+                            <input class="full-w red" type="button" value="login now">
+                        </form>
+                        <p>don't have an account? <a>sign up</a></p>
+                        <span>click on up or down to exit</span>
+                    </div>
+                    <div class="bord two">
+                        <a href="index.html">gamix<span>.</span></a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt Lorem Ipsum</p>
+                        <div class="icons">
+                            <i class="fab fa-twitch"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-facebook-f"></i>
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--end hidden section-->
     <!--start navbar-->
     <div class="nav-bar">
@@ -94,14 +147,29 @@
             </video>
         </div>
         <div class="overlay">
+            <div class="social-icons">
+                <span>follow us</span>
+                <i class="fab fa-twitch"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+            <div class="dir-icons">
+                <i class="fas fa-chevron-left"></i>
+                <i class="fas fa-chevron-right"></i>
+            </div>
             <div class="container">
                 <div class="row">
-                    <div class=" img">
+                    <div class="img">
+                        <i class="fas fa-caret-right"></i>
                         <img src="imgs/banner.png " width="100%" height="100%">
                     </div>
                     <div class="txt">
                         <div class="con">
-                            <h1>gaming <br> online shop</h1>
+                            <h1>gaming <br> 
+                                <span class="active">online shop</span>
+                                <span class="hidden-txt">community</span>
+                            </h1>
                             <p>Lorem ipsum dolor sit amet coArchites.</p>
                             <button>join community</button>
                         </div>
