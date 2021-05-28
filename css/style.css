@@ -788,6 +788,7 @@ header .overlay .container .row .txt button:hover {
     font-weight: bold;
     color: white;
     margin-bottom: 20px;
+    text-decoration: none;
 }
 
 .hidden.main-user .content .two a span {
