@@ -1,3 +1,4 @@
+/*start global*/
 * {
     padding:0;
     margin: 0;
@@ -10,12 +11,7 @@
     --redColor:#e50914;
     --darkColor:rgb(25, 25, 25) ;
 }
-
-body {
-    height: 5000px;
-    overflow-x: hidden;
-}
-
+/*end global*/
 /*start header*/
 .nav-bar {
     position: fixed;
@@ -430,7 +426,6 @@ header .overlay .container .row .txt button:hover {
         height:300px
     }
 }
-/*start header*/
 /*start hidden section*/
 .hidden {
     position: absolute;
@@ -901,5 +896,5 @@ header .overlay .container .row .txt button:hover {
         stroke-dashoffset: 256;
     }
 }
-
 /*start loader screen*/
+/*end header*/

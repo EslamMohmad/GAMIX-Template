@@ -91,4 +91,49 @@ $(window).ready(function () {
     $(".nav-bar .fa-bars").on("click", function () {
         $(".hidden.main-menu").slideDown(500).css("display","flex")
     })
+
+    /*slider-one css file
+    create stars for silder
+    */
+   const targetSlider = $(".section-one .bord");
+   targetSlider.addClass("swiper-slide")
+   let parenticon = $("<div class='parent-icon'></div>");
+   for (let i = 0; i < 5; i++) {
+        let icon = $("<i class='fas fa-star yellow'></i>");
+        parenticon.append(icon)
+   }
+   targetSlider.append(parenticon)
+
+   //swiper option
+   let slickWidth = $(window).innerWidth(),
+       numSlide;
+       if (slickWidth <= 467) {
+        numSlide = 1
+       } else if (slickWidth <= 767) {
+        numSlide = 2
+       } else {
+        numSlide = 3
+       }
+   $('.slider-one .row .col-lg-8').slick({
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: numSlide,
+        focusOnSelect:false
+  });
+  $('.slider-one .row .col-lg-8 button').css("display","none");
+   $('.slider-one .row .col-lg-8 .bord .img').on("click", function () {
+        let tarImg = $(this).html(),
+            tarText = $(this).find("img").attr("src"),
+            eleLength = $(".slider-one .col-lg-8 .slick-track").children().length,
+            contentTarImg = "<div class='txt'><p>gallery</p><span>image 5 of " + eleLength + "</span></div>";
+    $(".section-one .hidden-img")
+    .fadeIn()
+    .css("display","flex")
+    .html("<div class='content'>" + tarImg + contentTarImg + "</div>")
+    .on("click", function () {$(this).fadeOut()})
+    })
+    $(".section-one .hidden-img").on("click",".content", function (e) {
+        e.stopPropagation()
+    })
+
 })

@@ -8,11 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="fonts/css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/slider-one.css">
     <title>MAXON</title>
 </head>
 <body>
-    <!--start loader screen-->
+    <!--start header-->
+    <div class="header">
+        <!--start loader screen-->
     <div class="loader-screen">
         <div class="loader loader-box">
             <svg viewBox="0 0 80 80">
@@ -139,7 +142,6 @@
         </div>
     </div>
     <!--end navbar-->
-    <!--start header-->
     <header>
         <div class="video">
             <video autoplay loop muted height="100%">
@@ -178,10 +180,57 @@
             </div>
         </div>
     </header>
+    </div>
     <!--end header-->
-
+    <!--start section-one -->
+    <div class="section-one">
+        <div class="hidden-img"></div>
+        <!--slider-one-->
+        <div class="slider-one">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h5>today's</h5>
+                        <h2>games collection</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, dolores.</p>
+                        <button>brows more</button>
+                    </div>
+                    <div class="col-lg-8">
+                        <!--all stars has created by js-->
+                        <div class="bord one">
+                            <div class="img">
+                                <img src="imgs/game1.jpg">
+                            </div>
+                            <h5>battles zones</h5>
+                        </div>
+                        <div class="bord two">
+                            <div class="img">
+                                <img src="imgs/game2.jpg">
+                            </div>
+                            <h5>survival land</h5>
+                        </div>
+                        <div class="bord three">
+                            <div class="img">
+                                <img src="imgs/game3.jpg">
+                            </div>
+                            <h5>double dragon</h5>
+                        </div>  
+                        <div class="bord four">
+                            <div class="img">
+                                <img src="imgs/game4.jpg">
+                            </div>
+                            <h5>zombie world</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--slider-one-->
+    </div>
+    <!--end section-one -->
     <!--script files-->
     <script src="javascript/jquery-3.6.0.min.js"></script>
+    <script src="javascript/slick.min.js"></script>
     <script src="javascript/bootstrap.min.js"></script>
     <script src="javascript/main.js"></script>
     <!--script files-->
