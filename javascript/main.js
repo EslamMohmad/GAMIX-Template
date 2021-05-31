@@ -22,6 +22,7 @@ $(window).ready(function () {
 
     $(".hidden.main-user").on("click", function () {
         $(this).fadeOut()
+        $("body").css("overflow-y","scroll")
     })
 
     //Header Carousel Slider
