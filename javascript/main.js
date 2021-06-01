@@ -96,7 +96,7 @@ $(window).ready(function () {
     /*slider-one css file
     create stars for silder
     */
-   const targetSlider = $(".section-one .bord");
+   const targetSlider = $(".section-one .slider-one .bord");
    targetSlider.addClass("swiper-slide")
    let parenticon = $("<div class='parent-icon'></div>");
    for (let i = 0; i < 5; i++) {

@@ -1,6 +1,7 @@
 /*start global*/
 .section-one {
     background-color: #191919;
+    color:white
 }
 
 .section-one .hidden-img {
@@ -15,7 +16,6 @@
     left: 0;
     z-index: 3;
     background-color: rgb(0, 0, 0,0.8);
-    color:white
 }  
 
 .section-one .hidden-img img {
@@ -40,7 +40,7 @@
 /*end global*/
 /*start slider-one*/
 .slider-one .row {
-    padding: 50px 25px;
+    padding: 50px 0;
 }
 
 
@@ -218,7 +218,173 @@
         display: none;
     }
 }
-
-
-
 /*start slider-one*/
+/*start slider-two*/
+.slider-two .container .row h1 {
+    font-size: 90px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--redColor);
+    -webkit-text-fill-color: white;
+    text-shadow: 3px 3px var(--redColor);
+    font-family: fantasy;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.slider-two .container .row h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width:40px;
+    height: 5px;
+    background-color: var(--redColor);
+}
+
+.slider-two .container .row .parent {
+    margin-top: 50px;
+    width: 100%;
+    height: 600px;
+    margin:50px 0 ;
+}
+
+.slider-two .container .row .parent .bord {
+    position: relative;
+    padding: 0;
+}
+
+.slider-two .container .row .parent .one .clip {
+    clip-path: polygon(0 0, 90% 0, 100% 10%, 100% 100%, 10% 100%, 0 90%);
+    width: 100%;
+    height: 100%;
+    background-image: url(../imgs/about.jpg);
+    background-size: cover;
+    filter: grayscale(100%);
+    transition: .3s ease-out filter;
+}
+
+.slider-two .container .row .parent .one::before {
+    position: absolute;
+    content: "";
+    top:50%;
+    left: -3px;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 250px;
+    background-color: var(--redColor);
+}
+
+.slider-two .container .row .parent .one .txt {
+    position: absolute;
+    content: "";
+    bottom:0px;
+    right:0;
+    color:white;
+    background-color: var(--redColor);
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    margin: 0;
+    padding-top: 20px;
+}
+
+.slider-two .container .row .parent .one .txt h2 {
+    font-size: 65px;
+    margin: 0;
+}
+
+.slider-two .container .row .parent .one:hover .clip {
+    filter: grayscale(0%);
+}
+
+.slider-two .container .row .parent .two {
+    padding: 0 20px 0 80px;
+}
+
+.slider-two .container .row .parent .two h5 {
+    color: var(--redColor);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.slider-two .container .row .parent .two h2 {
+    text-transform: uppercase;
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.slider-two .container .row .parent .two p {
+    color: gray;
+    margin-bottom: 30px;
+}
+
+.slider-two .container .row .parent .two button {
+    background-color: var(--redColor);
+    color: white;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    padding: 15px 30px;
+    text-transform: capitalize;
+}
+
+@media (max-width: 1200px) {
+    .slider-two .container .row .parent {
+        height: 500px;
+    }
+}
+
+@media (max-width:991px) {
+    .slider-two .container .row .parent {
+        height:auto;
+        flex-direction: column;
+        margin-bottom:0 ;
+    }
+
+    .slider-two .container .row .parent .bord {
+        align-self: center;
+        margin: 0 15px;
+    }
+
+    .slider-two .container .row .parent .one {
+        max-width:500px;
+        height: 700px;
+        margin-bottom: 50px;
+    }
+
+    .slider-two .container .row .parent .one .clip {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .slider-two .container .row .parent .two {
+        padding:0;
+        height: auto;
+        width: 90%;
+    }
+
+    .slider-two .container .row .parent .two p br:nth-of-type(3) {
+        display: none;
+    }
+}
+
+@media (max-width: 617px) {
+    .slider-two .container .row h1{
+        margin: auto;
+        text-align: center;
+    }
+
+    .slider-two .container .row .parent .one {
+        max-width: 300px;
+        max-height: 400px;
+    }
+
+    .slider-two .container .row .parent .two {
+        text-align: center;
+    }
+}
+/*end slider-two*/
