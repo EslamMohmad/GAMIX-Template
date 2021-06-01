@@ -103,7 +103,7 @@
 
 header {
     width: 100%;
-    height: 80vh;
+    height: 750px;
     overflow: hidden;
     position: relative;
 }
@@ -196,7 +196,7 @@ header .overlay .dir-icons i:hover {
 
 header .overlay .container {
     position: absolute;
-    height: 70vh;
+    height: 620px;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -259,9 +259,15 @@ header .overlay .container .row .img .fa-caret-right:hover {
     color: var(--redColor);
 }
 
-@media (max-width: 992px) {
+header .overlay .container .row .img .photo {
+    background-image: url(../imgs/banner.png);
+    background-size: cover;
+    height: 100%;
+}
+
+@media (max-width: 993px) {
     header .overlay .container .row .img .fa-caret-right {
-        left: -50px;
+        left: 40px;
     }
 }
 
@@ -302,9 +308,9 @@ header .overlay .container .row .txt p {
 }
 
 header .overlay .container .row .txt button {
-    width: 180px;
-    height: 60px;
-    font-size: 19px;
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
     color: white;
     background-color: var(--redColor);
     border-radius: 30px;
@@ -320,24 +326,23 @@ header .overlay .container .row .txt button:hover {
     color: var(--redColor);
 }
 
-@media (max-width: 1200px) {
+@media (max-width:1200px) {
     header {
-        height: 75vh;
+        height: 600px;
     }
 
     header .overlay .container {
-        height: 65vh;
-    } 
+        height: 500px;
+    }
 }
 
-@media (max-width:992px) {
+@media (max-width:993px) {
     header {
-        min-height: 90vh;
+        height: 900px;
     }
 
     header .overlay .container {
-        height: 90vh;
-        max-width: 500px;
+        height: 850px;
     }
 
     header .overlay .container .row {
@@ -346,11 +351,7 @@ header .overlay .container .row .txt button:hover {
 
     header .overlay .container .row > div {
         width: 100%;
-        height: 47.5%;
-    }
-
-    header .overlay .container .row .txt {
-        height: 55%;
+        height: 50%;
     }
 
     header .overlay .container .row .img::before {
@@ -362,7 +363,7 @@ header .overlay .container .row .txt button:hover {
     }
 
     header .overlay .container .row .img::after {
-        left: 30px;
+        left: 10%;
         top:70px
     }
 
@@ -383,9 +384,10 @@ header .overlay .container .row .txt button:hover {
         margin-left: 13px;
     }
 
-    header .overlay .container .row .img {
-        height: 45%;
-        padding: 0 50px 0px 50px;
+    header .overlay .container .row .img .photo {
+        height: 100%;
+        max-width: 370px;
+        margin:auto ;
     }
 
     header .overlay .container .row .txt h1 .hidden-txt {
@@ -406,24 +408,35 @@ header .overlay .container .row .txt button:hover {
         width: 400px;
         height:400px
     }
-
-    header {
-        min-height: 100vh;
-    }
-
-    header .overlay .container .row .img {
-        padding: 0;
-    }
 }
 
 @media (max-width:400px) {
+    header {
+        height: 850px;
+    }
+
+    header .overlay .container {
+        height: 700px;
+    }
+
     header .overlay .container .row .txt h1 {
         font-size: 45px;
     } 
 
     header .overlay .container .row .img::before {
+        width: 350px;
+        height:350px;
+        top:160px
+    }
+
+    header .overlay .container .row .img .photo{
         width: 300px;
-        height:300px
+        height: 80%;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
     }
 }
 /*start hidden section*/

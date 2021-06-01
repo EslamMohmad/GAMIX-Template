@@ -136,5 +136,4 @@ $(window).ready(function () {
     $(".section-one .hidden-img").on("click",".content", function (e) {
         e.stopPropagation()
     })
-
 })
