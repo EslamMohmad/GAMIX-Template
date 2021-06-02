@@ -136,4 +136,32 @@ $(window).ready(function () {
     $(".section-one .hidden-img").on("click",".content", function (e) {
         e.stopPropagation()
     })
+
+    
+    //counter function 
+    function countNumber(element,speed,maxValue) {
+        const timer = setInterval(function () {
+            let num = eval(element.text()),
+                i;
+            if (num <= maxValue) {
+                i++;
+                element.text(num + 1)
+            } else {
+                clearInterval(timer)
+                //do nothing
+            }
+        },speed)
+    }
+    $(window).on("scroll",function () {
+        const sThreePosition = $(".slider-two").offset().top,
+              winTop = $(this).scrollTop();
+        if (winTop > sThreePosition) {
+            countNumber($(".slider-two .row .txt h2"),500,19)
+            countNumber($(".slider-three .container .one h1"),250,105)
+            countNumber($(".slider-three .container .two h1"),200,100)
+            countNumber($(".slider-three .container .three h1"),150,221)
+            countNumber($(".slider-three .container .four h1"),50,875)
+        }
+
+    })
 })
