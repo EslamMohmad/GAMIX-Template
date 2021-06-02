@@ -412,7 +412,7 @@ header .overlay .container .row .txt button:hover {
 
 @media (max-width:400px) {
     header {
-        height: 850px;
+        height: 750px;
     }
 
     header .overlay .container {

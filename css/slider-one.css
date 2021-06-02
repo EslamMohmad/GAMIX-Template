@@ -205,11 +205,10 @@
     
 }
 
-@media (max-width: 576px) {
-    
-}
-
 @media (max-width: 467px) {
+    .section-one .container {
+        max-width: 320px;
+    }
     .slider-one .row .col-lg-8 {
         max-height: 540px;
     }
@@ -221,12 +220,12 @@
 /*start slider-one*/
 /*start slider-two*/
 .slider-two .container .row h1 {
-    font-size: 90px;
+    font-size: 100px;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--redColor);
     -webkit-text-fill-color: white;
     text-shadow: 3px 3px var(--redColor);
-    font-family: fantasy;
+    font-family:revert;
     letter-spacing: 2px;
     position: relative;
     padding-bottom: 10px;
@@ -246,7 +245,7 @@
     margin-top: 50px;
     width: 100%;
     height: 600px;
-    margin:50px 0 ;
+    margin:50px 15px ;
 }
 
 .slider-two .container .row .parent .bord {
@@ -347,7 +346,6 @@
 
     .slider-two .container .row .parent .bord {
         align-self: center;
-        margin: 0 15px;
     }
 
     .slider-two .container .row .parent .one {
@@ -364,7 +362,7 @@
     .slider-two .container .row .parent .two {
         padding:0;
         height: auto;
-        width: 90%;
+        width: 100%;
     }
 
     .slider-two .container .row .parent .two p br:nth-of-type(3) {
@@ -383,8 +381,12 @@
         max-height: 400px;
     }
 
-    .slider-two .container .row .parent .two {
-        text-align: center;
+    .slider-two .container .row .parent .two h2 {
+        font-size: 25px;
     }
+    .slider-two .container .row .parent .two p {
+        font-size: 15px;
+    }
+
 }
 /*end slider-two*/
