@@ -221,14 +221,16 @@
 /*start slider-two*/
 .slider-two .container .row h1 {
     font-size: 100px;
-    -webkit-text-stroke-width: 1px;
+    /* -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--redColor);
-    -webkit-text-fill-color: white;
+    -webkit-text-fill-color: white; */
     text-shadow: 3px 3px var(--redColor);
-    font-family:revert;
+    font-family:'Fjalla One', sans-serif;
     letter-spacing: 2px;
     position: relative;
     padding-bottom: 10px;
+    text-shadow:4px 4px 2px var(--redColor);
+    font-weight: bolder;
 }
 
 .slider-two .container .row h1::after {
