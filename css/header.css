@@ -492,6 +492,7 @@ header .overlay .container .row .txt button:hover {
     text-transform: uppercase;
     transition: 0.2s ease-in-out color;
     font-weight: bolder;
+    padding: 0;
 }
 
 .hidden.main-menu .icon {

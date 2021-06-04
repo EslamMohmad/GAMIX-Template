@@ -54,6 +54,11 @@ $(window).ready(function () {
         })
     })
 
+    //nav-bar menu
+    $(".main-menu.hidden .container ul li").on("click", function () {
+        console.log($(this))
+    })
+
     //all icon
     function allIcon(icon,targetParent) {
         let arr = ["fade", "slide"];
@@ -82,7 +87,7 @@ $(window).ready(function () {
     }
     allIcon(".fa-search",".hidden.main-search")
     allIcon(".fa-shopping-bag",".hidden.main-products")
-    allIcon(".fa-caret-right", ".hidden.main-video")
+    allIcon(".fa-caret-right.top", ".hidden.main-video")
 
     //shopping icon
     $(".hidden.main-products .cart, .hidden.main-video .frame-video, .hidden.main-user .container").on("click", function (e) {
@@ -114,14 +119,6 @@ $(window).ready(function () {
    $(function () {
         let slickWidth = $(window).innerWidth(),
         numSlide;
-        if (slickWidth <= 467) {
-        numSlide = 1
-        } else if (slickWidth <= 767 || slickWidth <= 991) {
-        numSlide = 2
-        } else {
-        numSlide = 3
-        }
-
         $('.slider-one .row .col-lg-8').slick({
             autoplay: true,
             autoplaySpeed: 2000,
@@ -134,6 +131,14 @@ $(window).ready(function () {
             autoplaySpeed: 2000,
             slidesToShow: slickWidth <= 767 ? numSlide = 1 : slickWidth >= 991 ? numSlide = 3: numSlide = 2
         })
+
+        $(".slider-five .two .parent").slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            slidesToShow: slickWidth <= 576 ? numSlide = 1 : slickWidth >= 991 ? numSlide = 4 : numSlide = 2
+        })
+
+        $(".slick-arrow").css("display","none")
    })
    
    //click on img of slider-one
@@ -185,4 +190,9 @@ $(window).ready(function () {
         })
     })
     
+    //section one slider five 
+    $(".slider-five .fa-caret-right").on("click", function () {
+        $(".slider-five .hidden-video").fadeIn().css("display","flex")
+    })
+    $(".slider-five .hidden-video").on("click", function () { $(this).fadeOut() })
 })
