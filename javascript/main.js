@@ -1,4 +1,5 @@
 $(window).ready(function () {
+    //when scroll top (nav bar)
     $(window).on("scroll", function () {
         let scrollTop = $(this).scrollTop();
         if (scrollTop > 150) {
@@ -13,18 +14,21 @@ $(window).ready(function () {
         $(".loader-screen").delay(300).fadeOut()
     })
 
-    $(".fa-user").on("click", function () {
-        $(".loader-screen").fadeIn().delay(1000).fadeOut("slow")
-        $(".hidden.main-menu").slideUp()
-        $(".hidden.main-user").fadeIn(1500).css("display","flex")
-        $("body").css("overflow","hidden")
+    //nav-bar user icon
+    $(function () {
+        $(".fa-user").on("click", function () {
+            $(".loader-screen").fadeIn().delay(1000).fadeOut("slow")
+            $(".hidden.main-menu").slideUp()
+            $(".hidden.main-user").fadeIn(1500).css("display","flex")
+            $("body").css("overflow","hidden")
+        })
+    
+        $(".hidden.main-user").on("click", function () {
+            $(this).fadeOut()
+            $("body").css("overflow-y","scroll")
+        })
     })
-
-    $(".hidden.main-user").on("click", function () {
-        $(this).fadeOut()
-        $("body").css("overflow-y","scroll")
-    })
-
+    
     //Header Carousel Slider
     $(function () {
         const timing = 3000;
@@ -93,75 +97,92 @@ $(window).ready(function () {
         $(".hidden.main-menu").slideDown(500).css("display","flex")
     })
 
-    /*slider-one css file
-    create stars for silder
-    */
-   const targetSlider = $(".section-one .slider-one .bord");
-   targetSlider.addClass("swiper-slide")
-   let parenticon = $("<div class='parent-icon'></div>");
-   for (let i = 0; i < 5; i++) {
-        let icon = $("<i class='fas fa-star yellow'></i>");
-        parenticon.append(icon)
-   }
-   targetSlider.append(parenticon)
-
-   //swiper option
-   let slickWidth = $(window).innerWidth(),
-       numSlide;
-       if (slickWidth <= 467) {
+    /*create stars for imgs silder-one*/
+    $(function () {
+        const targetSlider = $(".section-one .slider-one .bord");
+        targetSlider.addClass("swiper-slide")
+        let parenticon = $("<div class='parent-icon'></div>");
+        for (let i = 0; i < 5; i++) {
+                let icon = $("<i class='fas fa-star yellow'></i>");
+                parenticon.append(icon)
+        }
+        targetSlider.append(parenticon)
+    })
+   
+   
+    //swiper option
+   $(function () {
+        let slickWidth = $(window).innerWidth(),
+        numSlide;
+        if (slickWidth <= 467) {
         numSlide = 1
-       } else if (slickWidth <= 767) {
+        } else if (slickWidth <= 767 || slickWidth <= 991) {
         numSlide = 2
-       } else {
+        } else {
         numSlide = 3
-       }
-   $('.slider-one .row .col-lg-8').slick({
-        autoplay: true,
-        autoplaySpeed: 2000,
-        slidesToShow: numSlide,
-        focusOnSelect:false
-  });
-  $('.slider-one .row .col-lg-8 button').css("display","none");
-   $('.slider-one .row .col-lg-8 .bord .img').on("click", function () {
-        let tarImg = $(this).html(),
-            tarText = $(this).find("img").attr("src"),
-            eleLength = $(".slider-one .col-lg-8 .slick-track").children().length,
-            contentTarImg = "<div class='txt'><p>gallery</p><span>image 5 of " + eleLength + "</span></div>";
-    $(".section-one .hidden-img")
-    .fadeIn()
-    .css("display","flex")
-    .html("<div class='content'>" + tarImg + contentTarImg + "</div>")
-    .on("click", function () {$(this).fadeOut()})
-    })
-    $(".section-one .hidden-img").on("click",".content", function (e) {
-        e.stopPropagation()
-    })
-
-    
-    //counter function 
-    function countNumber(element,speed,maxValue) {
-        const timer = setInterval(function () {
-            let num = eval(element.text()),
-                i;
-            if (num <= maxValue) {
-                i++;
-                element.text(num + 1)
-            } else {
-                clearInterval(timer)
-                //do nothing
-            }
-        },speed)
-    }
-    $(window).on("scroll",function () {
-        const sThreePosition = $(".slider-two").offset().top,
-              winTop = $(this).scrollTop();
-        if (winTop > sThreePosition) {
-            countNumber($(".slider-two .row .txt h2"),500,19)
-            countNumber($(".slider-three .container .one h1"),250,105)
-            countNumber($(".slider-three .container .two h1"),200,100)
-            countNumber($(".slider-three .container .three h1"),150,221)
-            countNumber($(".slider-three .container .four h1"),50,875)
         }
 
+        $('.slider-one .row .col-lg-8').slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            slidesToShow: slickWidth <= 467 ? numSlide = 1 : slickWidth >= 767 ? numSlide = 3 : numSlide = 2,
+            focusOnSelect:false
+        });
+
+        $(".slider-four .row .parent").slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            slidesToShow: slickWidth <= 767 ? numSlide = 1 : slickWidth >= 991 ? numSlide = 3: numSlide = 2
+        })
+   })
+   
+   //click on img of slider-one
+   $(function () {
+        $('.slider-one .row .col-lg-8 button').css("display","none");
+        $('.slider-one .row .col-lg-8 .bord .img').on("click", function () {
+            let tarImg = $(this).html(),
+                tarText = $(this).find("img").attr("src"),
+                eleLength = $(".slider-one .col-lg-8 .slick-track").children().length,
+                contentTarImg = "<div class='txt'><p>gallery</p><span>image 5 of " + eleLength + "</span></div>";
+        $(".section-one .hidden-img")
+        .fadeIn()
+        .css("display","flex")
+        .html("<div class='content'>" + tarImg + contentTarImg + "</div>")
+        .on("click", function () {$(this).fadeOut()})
+        })
+        $(".section-one .hidden-img").on("click",".content", function (e) {
+            e.stopPropagation()
+        })
+   })
+    
+    
+    //counter function
+    $(function () {
+        function countNumber(element,speed,maxValue) {
+            const timer = setInterval(function () {
+                let num = eval(element.text()),
+                    i;
+                if (num <= maxValue) {
+                    i++;
+                    element.text(num + 1)
+                } else {
+                    clearInterval(timer)
+                    //do nothing
+                }
+            },speed)
+        }
+        $(window).on("scroll",function () {
+            const sThreePosition = $(".slider-two").offset().top,
+                  winTop = $(this).scrollTop();
+            if (winTop > sThreePosition) {
+                countNumber($(".slider-two .row .txt h2"),500,19)
+                countNumber($(".slider-three .container .one h1"),250,105)
+                countNumber($(".slider-three .container .two h1"),200,100)
+                countNumber($(".slider-three .container .three h1"),150,221)
+                countNumber($(".slider-three .container .four h1"),50,875)
+            }
+    
+        })
     })
+    
 })
