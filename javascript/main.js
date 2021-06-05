@@ -123,7 +123,6 @@ $(window).ready(function () {
             autoplay: true,
             autoplaySpeed: 2000,
             slidesToShow: slickWidth <= 467 ? numSlide = 1 : slickWidth >= 767 ? numSlide = 3 : numSlide = 2,
-            focusOnSelect:false
         });
 
         $(".slider-four .row .parent").slick({
@@ -136,6 +135,42 @@ $(window).ready(function () {
             autoplay: true,
             autoplaySpeed: 2000,
             slidesToShow: slickWidth <= 576 ? numSlide = 1 : slickWidth >= 991 ? numSlide = 4 : numSlide = 2
+        })
+
+        $(".section-tow .slider-one .parent").slick({
+            slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: false,
+        dots: false,
+        arrows: false,
+        autoplaySpeed: 2500,
+        centerMode: true,
+        centerPadding: '0px',
+        focusOnSelect: true,
+        responsive: [
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+    },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+    },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+    },
+
+  ]
         })
 
         $(".slick-arrow").css("display","none")
@@ -195,4 +230,10 @@ $(window).ready(function () {
         $(".slider-five .hidden-video").fadeIn().css("display","flex")
     })
     $(".slider-five .hidden-video").on("click", function () { $(this).fadeOut() })
+
+    //player section 
+    $(".section-tow .slider-one .container .row .parent .bord").on("click", function () {
+        
+        
+    })
 })

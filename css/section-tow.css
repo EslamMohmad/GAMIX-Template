@@ -1,0 +1,115 @@
+/*start section-two*/
+.section-tow {
+    background-color: #141414;
+    color: white;
+}
+
+.section-tow .slider-one h1 {
+    font-size: 100px;
+    font-family: 'Fjalla One', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 10px;
+    text-shadow: 4px 4px 2px var(--redColor);
+    font-weight: bolder;
+    padding: 70px 0;
+}
+
+
+
+.section-tow .slider-one h1 span {
+    border-bottom: 5px solid var(--redColor);
+}
+
+@media (max-width:618px) {
+    .section-tow .slider-one h1 {
+        text-align: center;
+    }
+}
+
+.section-tow .slider-one .container .row.player {
+    margin: 0;
+    display: block;
+
+}
+
+.section-tow .slider-one .container .row.player .parent {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.section-tow .slider-one .container .row.player .parent .slick-list {
+    overflow:hidden;
+}
+
+.section-tow .slider-one .container .row.player .parent .slick-track {
+    display: flex;
+}
+
+.section-tow .slider-one .container .row.player .parent .bord {
+    width: 32%;
+    max-height: 500px;
+    position: relative;
+    margin: 0 20px;
+}
+
+.section-tow .slider-one .container .row.player .parent .bord .img,
+.section-tow .slider-one .container .row.player .parent .bord .img img{
+    width: 100%;
+    height: 100%;
+}
+
+.section-tow .slider-one .container .row.player .parent .bord .img img {
+    filter: grayscale(100%);
+}
+
+.section-tow .slider-one .container .row.player .parent .bord.slick-current .img img {
+    filter: grayscale(0%);
+}
+
+.section-tow .slider-one .container .row.player .parent .bord .title {
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color: var(--redColor);
+    color: white;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    display: none;
+}
+
+.section-tow .slider-one .container .row.player .parent .bord .lightbox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:-100%;
+    left: 0;
+    background-color: rgba(37, 37, 37,0.7);
+    transition: 0.5s ease-in-out top;
+    font-size: 50px;
+    text-align: center;
+    line-height: 400px;
+    cursor: pointer;
+}
+
+.section-tow .slider-one .container .row.player .parent .bord.slick-current .title {
+    display:block
+}
+
+.section-tow .slider-one .container .row.player .parent .bord:hover .lightbox {
+    top:0%;
+}
+
+.section-tow .slider-one .container .row.result {
+    padding-top: 70px;
+}
+/*start slider-one*/
+/*end slider-one*/
+/*end section-two*/
