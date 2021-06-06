@@ -60,46 +60,48 @@ $(window).ready(function () {
     })
 
     //all icon
-    function allIcon(icon,targetParent) {
-        let arr = ["fade", "slide"];
-        $(icon).on("click", function () {
-            if ($(window).innerWidth() <= 800) {
-                for (let i = 0; i < arr.length; i++) {
-                    if ($(targetParent).hasClass("fade")) {
-                        $(targetParent).fadeIn(1000).css("display", "flex").addClass("active");
-                        $(".hidden.main-menu").delay(1500).slideUp()
-                    } else  {
-                        $(targetParent).slideDown().css("display", "flex")
-                        $(".hidden.main-menu").slideUp()
+    $(function () {
+        function allIcon(icon,targetParent) {
+            let arr = ["fade", "slide"];
+            $(icon).on("click", function () {
+                if ($(window).innerWidth() <= 800) {
+                    for (let i = 0; i < arr.length; i++) {
+                        if ($(targetParent).hasClass("fade")) {
+                            $(targetParent).fadeIn(1000).css("display", "flex").addClass("active");
+                            $(".hidden.main-menu").delay(1500).slideUp()
+                        } else  {
+                            $(targetParent).slideDown().css("display", "flex")
+                            $(".hidden.main-menu").slideUp()
+                        }
                     }
+                } else {
+                    $(targetParent).slideDown().css("display", "flex")
+                    $(targetParent).fadeIn().css("display", "flex").addClass("active");
                 }
-            } else {
-                $(targetParent).slideDown().css("display", "flex")
-                $(targetParent).fadeIn().css("display", "flex").addClass("active");
-            }
+            })
+            $(".hidden.main-menu .fa-times, .hidden.main-search .fa-times").on("click", function () {
+                $(this).parent().slideUp()
+            })
+            $(".hidden.main-products .fa-times").on("click", function () {
+                $(this).parent().parent().fadeOut().removeClass("active")
+            })
+        }
+        allIcon(".fa-search",".hidden.main-search")
+        allIcon(".fa-shopping-bag",".hidden.main-products")
+        allIcon(".fa-caret-right.top", ".hidden.main-video")
+    
+        //shopping icon
+        $(".hidden.main-products .cart, .hidden.main-video .frame-video, .hidden.main-user .container").on("click", function (e) {
+            e.stopPropagation()
         })
-        $(".hidden.main-menu .fa-times, .hidden.main-search .fa-times").on("click", function () {
-            $(this).parent().slideUp()
+        //products section
+        $(".hidden.main-products, .hidden.main-video").on("click", function () {
+            $(this).slideUp().removeClass("active");
         })
-        $(".hidden.main-products .fa-times").on("click", function () {
-            $(this).parent().parent().fadeOut().removeClass("active")
+        // menu icon
+        $(".nav-bar .fa-bars").on("click", function () {
+            $(".hidden.main-menu").slideDown(500).css("display","flex")
         })
-    }
-    allIcon(".fa-search",".hidden.main-search")
-    allIcon(".fa-shopping-bag",".hidden.main-products")
-    allIcon(".fa-caret-right.top", ".hidden.main-video")
-
-    //shopping icon
-    $(".hidden.main-products .cart, .hidden.main-video .frame-video, .hidden.main-user .container").on("click", function (e) {
-        e.stopPropagation()
-    })
-    //products section
-    $(".hidden.main-products, .hidden.main-video").on("click", function () {
-        $(this).slideUp().removeClass("active");
-    })
-    // menu icon
-    $(".nav-bar .fa-bars").on("click", function () {
-        $(".hidden.main-menu").slideDown(500).css("display","flex")
     })
 
     /*create stars for imgs silder-one*/
@@ -173,7 +175,82 @@ $(window).ready(function () {
   ]
         })
 
-        $(".slick-arrow").css("display","none")
+        $(".section-tow .slider-tow .parent").slick({
+            slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: false,
+        dots: false,
+        arrows: false,
+        autoplaySpeed: 2500,
+        centerMode: true,
+        centerPadding: '0px',
+        focusOnSelect: true,
+        responsive: [
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+    },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+    },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+    },
+
+  ]
+        })
+
+        $(".section-tow .slider-three .parent").slick({
+            slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: false,
+        dots: false,
+        arrows: true,
+        appendArrows: $(".section-tow .slider-three .container .row .buttons"), //append arrows in anther where
+        prevArrow:"<i class='fas fa-chevron-left'></i>",    //change html from btn to icon
+        nextArrow:"<i class='fas fa-chevron-right'></i>",   //change html from btn to icon
+        autoplaySpeed: 2500,
+        centerMode: true,
+        centerPadding: '0px',
+        focusOnSelect: true,
+        responsive: [
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+    },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+    },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+    },
+
+  ]
+        })
+
+        // $(".slick-arrow").css("display","none")
    })
    
    //click on img of slider-one
@@ -212,28 +289,36 @@ $(window).ready(function () {
             },speed)
         }
         $(window).on("scroll",function () {
-            const sThreePosition = $(".slider-two").offset().top,
+            const SOST = $(".section-one .slider-two").offset().top, //section-one slider-thre
                   winTop = $(this).scrollTop();
-            if (winTop > sThreePosition) {
-                countNumber($(".slider-two .row .txt h2"),500,19)
-                countNumber($(".slider-three .container .one h1"),250,105)
-                countNumber($(".slider-three .container .two h1"),200,100)
-                countNumber($(".slider-three .container .three h1"),150,221)
-                countNumber($(".slider-three .container .four h1"),50,875)
+            if (winTop > SOST) {
+                countNumber($(".section-one .slider-two .row .txt h2"),500,19)
+                countNumber($(".section-one .slider-three .container .one h1"),250,105)
+                countNumber($(".section-one .slider-three .container .two h1"),200,100)
+                countNumber($(".section-one .slider-three .container .three h1"),150,221)
+                countNumber($(".section-one .slider-three .container .four h1"),50,875)
+            }
+
+            const STSO = $(".section-tow .slider-one").offset().top; //section-two slider-one
+            if (winTop > (STSO - 100)) {
+                countNumber($(".section-tow .slider-one .one span"),130, 149)
+                countNumber($(".section-tow .slider-one .two span"),140, 169)
             }
     
         })
-    })
-    
+    })    
     //section one slider five 
     $(".slider-five .fa-caret-right").on("click", function () {
         $(".slider-five .hidden-video").fadeIn().css("display","flex")
     })
     $(".slider-five .hidden-video").on("click", function () { $(this).fadeOut() })
 
-    //player section 
-    $(".section-tow .slider-one .container .row .parent .bord").on("click", function () {
-        
-        
+    //footer .two social icons 
+    $("footer .tow .col-lg-6 .icons i").on({
+       "mouseover": function() { 
+           let targetColor = $(this).data("color");
+           $(this).css("background-color",targetColor)
+        },
+        "mouseleave": function () { $(this).css("background-color","#202020") }
     })
 })

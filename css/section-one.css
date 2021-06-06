@@ -667,6 +667,10 @@
     height: 200px;
 }
 
+.section-one .slider-five .container .two .parent button {
+    display: none;
+}
+
 .section-one .slider-five .container .two .parent .slick-list {
     overflow:hidden;
 }
