@@ -838,6 +838,102 @@ header .overlay .container .row .txt button:hover {
         display: none;
     }
 }
+
+.hidden.contact {
+    background-color: rgba(20, 20, 20, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden.contact .parent{
+    background-color:#141414 ;
+    width: 700px;
+    padding: 25px;
+    position: relative;
+    border-radius:5px ;
+    margin: 0 30px;
+}
+.hidden.contact .parent h2 {
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+.hidden.contact .parent h2 span {
+    color:var(--redColor);
+    margin-left:5px;
+}
+
+.hidden.contact .parent i {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background-color: var(--redColor);
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.hidden.contact .parent form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.hidden.contact .parent form input,
+.hidden.contact .parent form textarea {
+    background-color: transparent;
+    border: 1px solid #414141;
+    outline: none;
+    padding: 20px;
+    border-radius:5px;
+    font-size: 14px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.hidden.contact .parent form input[type="text"],
+.hidden.contact .parent form input[type="email"]{
+    width: 47%;
+    margin-bottom: 20px;
+}
+
+.hidden.contact .parent form .foot {
+    width: 100%;
+}
+
+.hidden.contact .parent form .foot textarea {
+    width: 100%;
+    resize: none;
+}
+
+.hidden.contact .parent form .foot hr {
+    background-color: #202020;
+    margin: 20px 0;
+    display: block;
+}
+.hidden.contact .parent form .foot button {
+    background-color: var(--redColor);
+    color: white;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    padding: 15px 30px;
+    text-transform: capitalize;
+    float: right;
+}
+
+@media (max-width:992px) {
+    .hidden.contact .parent {
+        max-width: 500px;
+    }
+    .hidden.contact .parent form input[type="text"],
+    .hidden.contact .parent form input[type="email"] {
+        width: 100%;
+    }
+}
 /*end hidden section*/
 /*start loader screen*/
 .loader-screen {

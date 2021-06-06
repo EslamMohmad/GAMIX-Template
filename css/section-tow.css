@@ -54,6 +54,7 @@
     max-height: 500px;
     position: relative;
     margin: 0 20px;
+    outline: none;
 }
 
 .section-tow .slider-one .container .row.player .parent .bord .img,
@@ -229,6 +230,7 @@
     background-color: #191919;
     text-align: center;
     padding: 25px 0;
+    outline: none;
 }
 
 .section-tow .slider-tow .container .parent .bord img {
@@ -359,6 +361,7 @@
     margin: 0 15px;
     background-color: #191919;
     filter: grayscale(100%);
+    outline: none;
 }
 
 .section-tow .slider-three .container .row .bord.slick-current {

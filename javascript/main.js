@@ -55,10 +55,29 @@ $(window).ready(function () {
     })
 
     //nav-bar menu
-    $(".main-menu.hidden .container ul li").on("click", function () {
-        console.log($(this))
-    })
+    $(function () {
+        $(".main-menu.hidden .container ul li").on("click", function () {
+            if ($(this).text() == "contact") {
+               $(".hidden.contact").slideDown().css("display","flex")
+               $(".main-menu.hidden").slideUp()
+            } else {
+                let sectionPosition = $("." + $(this).attr("class")).offset().top;
+                $("html, body").animate({
+                    scrollTop :sectionPosition
+                },"slow")
+                $(".main-menu.hidden").slideUp()
+            }
+        })
 
+        $(".hidden.contact .parent").on("click", function (e) {
+            e.stopPropagation()
+        })
+
+        $(".hidden.contact .parent i.fa-times").on("click", function () {
+            $(this).parents(".hidden.contact").slideUp()
+        })
+    })
+    
     //all icon
     $(function () {
         function allIcon(icon,targetParent) {
@@ -250,7 +269,8 @@ $(window).ready(function () {
   ]
         })
 
-        // $(".slick-arrow").css("display","none")
+        $(".slick-arrow").css("display","none")
+        $(".section-tow .slider-three .row .buttons i").css("display","inline-block")
    })
    
    //click on img of slider-one
@@ -271,7 +291,6 @@ $(window).ready(function () {
             e.stopPropagation()
         })
    })
-    
     
     //counter function
     $(function () {
@@ -313,12 +332,14 @@ $(window).ready(function () {
     })
     $(".slider-five .hidden-video").on("click", function () { $(this).fadeOut() })
 
-    //footer .two social icons 
-    $("footer .tow .col-lg-6 .icons i").on({
-       "mouseover": function() { 
-           let targetColor = $(this).data("color");
-           $(this).css("background-color",targetColor)
-        },
-        "mouseleave": function () { $(this).css("background-color","#202020") }
+    //footer .two social icons
+    $(function () {
+        $("footer .tow .col-lg-6 .icons i").on({
+            "mouseover": function() { 
+                let targetColor = $(this).data("color");
+                $(this).css("background-color",targetColor)
+             },
+             "mouseleave": function () { $(this).css("background-color","#202020") }
+         })
     })
 })
