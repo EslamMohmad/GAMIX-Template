@@ -7,8 +7,16 @@ $(window).ready(function () {
         } else {
             $(".nav-bar").removeClass("active")
         }
+
+        scrollTop > 1000 ? $(".fas.fa-chevron-up.main").fadeIn() : $(".fas.fa-chevron-up.main").fadeOut()
     })
 
+    //scroll to top icon
+    $(".fas.fa-chevron-up.main").on("click", function () {
+        $("html, body").animate({
+            scrollTop: 0
+        },1000)
+    })
     //when window loaded 
     $(window).on("load", function () {
         $(".loader-screen").delay(300).fadeOut()
@@ -61,10 +69,10 @@ $(window).ready(function () {
                $(".hidden.contact").slideDown().css("display","flex")
                $(".main-menu.hidden").slideUp()
             } else {
-                let sectionPosition = $("." + $(this).attr("class")).offset().top;
+                let sectionPosition = $("." + $(this).data("scroll")).offset().top;
                 $("html, body").animate({
                     scrollTop :sectionPosition
-                },"slow")
+                },1500)
                 $(".main-menu.hidden").slideUp()
             }
         })

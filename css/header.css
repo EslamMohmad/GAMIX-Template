@@ -841,7 +841,7 @@ header .overlay .container .row .txt button:hover {
 
 .hidden.contact {
     background-color: rgba(20, 20, 20, 0.8);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -933,6 +933,27 @@ header .overlay .container .row .txt button:hover {
     .hidden.contact .parent form input[type="email"] {
         width: 100%;
     }
+}
+
+.fas.fa-chevron-up.main {
+    position:absolute;
+    position:fixed;
+    bottom:20px;
+    right:30px;
+    width:50px;
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+    color:white;
+    border-radius:50%;
+    border:1px solid #464646;
+    cursor:pointer;
+    transition:0.2s ease-in-out border-color;
+    display:none
+}
+
+.fas.fa-chevron-up.main:hover {
+    border-color:white
 }
 /*end hidden section*/
 /*start loader screen*/
