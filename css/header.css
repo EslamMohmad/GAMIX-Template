@@ -841,7 +841,7 @@ header .overlay .container .row .txt button:hover {
 
 .hidden.contact {
     background-color: rgba(20, 20, 20, 0.8);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
