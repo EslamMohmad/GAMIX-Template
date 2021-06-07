@@ -69,9 +69,10 @@ $(window).ready(function () {
                $(".hidden.contact").slideDown().css("display","flex")
                $(".main-menu.hidden").slideUp()
             } else {
-                let sectionPosition = $("." + $(this).data("scroll")).offset().top;
+                let sectionPosition = $("." + $(this).data("scroll")).offset().top,
+                    navBarHeight = $(".nav-bar").innerHeight();
                 $("html, body").animate({
-                    scrollTop :sectionPosition
+                    scrollTop : sectionPosition - navBarHeight
                 },1500)
                 $(".main-menu.hidden").slideUp()
             }

@@ -949,7 +949,8 @@ header .overlay .container .row .txt button:hover {
     border:1px solid #464646;
     cursor:pointer;
     transition:0.2s ease-in-out border-color;
-    display:none
+    display:none;
+    z-index: 2;
 }
 
 .fas.fa-chevron-up.main:hover {
